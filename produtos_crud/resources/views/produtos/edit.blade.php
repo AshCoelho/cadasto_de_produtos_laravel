@@ -5,7 +5,7 @@
     <div class="container mt-5" >
     <h1>Editar Produto </h1>
 
-        <form action="{{ route('produtos.uptade', ['id' => $produtos->id]) }}" method="post">
+        <form action="{{ route('produtos.update', ['id' => $produtos->id]) }}" method="post">
         @csrf
         @method('PUT')
             <div class="form-group">

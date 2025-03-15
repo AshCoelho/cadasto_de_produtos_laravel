@@ -36,7 +36,7 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        Produto::created($request->all());
+        Produto::create($request->all());
         return redirect()->route('produtos.index');
     }
 
@@ -65,7 +65,7 @@ class ProdutosController extends Controller
             'preco' => $request -> preco
         ];
 
-        $produtos = Produto::where('id', $id)->update($data);
+        Produto::where('id', $id)->update($data);
         return redirect()->route('produtos.index');
 
 
@@ -77,6 +77,7 @@ class ProdutosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Produto::where('id', $id)->delete();
+        return redirect()->route('produtos.index');
     }
 }

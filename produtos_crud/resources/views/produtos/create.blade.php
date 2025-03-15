@@ -3,7 +3,7 @@
 @section('content')
     
     <div class="container mt-5" >
-    <h1>Adicionar </h1>
+    <h1>Adicionar Produtos</h1>
 
         <form action="{{ route('produtos.store')}}" method="post">
         @csrf
@@ -23,7 +23,8 @@
                 </div>
                 <br>
                 <div class="form-group">
-                    <input type="submit" value="Adicionar" class="btn btn-outline-success">
+                    <input type="submit" value="Adicionar" name="submit"
+                    class="btn btn-outline-success">
                 </div>
                 
             </div>
