@@ -37,17 +37,17 @@ class ProdutosController extends Controller
     public function store(Request $request)
     {
         Produto::created($request->all());
-        redirect()->route('produtos.index');
+        return redirect()->route('produtos.index');
     }
 
     
     public function edit($id)
     {
         $produtos = Produto::where('id', $id)->first();
-        if(!empty($jogos)){
+        if(!empty($produtos)){
             return view('produtos.edit', ['produtos' => $produtos]);
         } else {
-            redirect()->route('produtos.index');
+            return redirect()->route('produtos.index');
         }
     }
     
@@ -59,7 +59,16 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = [
+            'nome' => $request -> nome,
+            'descricao' => $request -> descricao,
+            'preco' => $request -> preco
+        ];
+
+        $produtos = Produto::where('id', $id)->update($data);
+        return redirect()->route('produtos.index');
+
+
     }
 
     /**

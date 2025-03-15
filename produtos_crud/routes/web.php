@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/produtos')->group(function() {
     Route::get('/', [ProdutosController::class, 'index'])->name('produtos.index');
     Route::get('/create', [ProdutosController::class, 'create'])->name('produtos.create');
-    Route::get('/', [ProdutosController::class, 'store'])->name('produtos.store');
+    Route::post('/', [ProdutosController::class, 'store'])->name('produtos.store');
     Route::get('/{id}/edit', [ProdutosController::class, 'edit'])->name('produtos.edit');
+    Route::put('/{id}', [ProdutosController::class, 'update'])->name('produtos.update');
+    Route::delete('/{id}', [ProdutosController::class, 'destroy'])->name('produtos.destroy');
+
 });
 
