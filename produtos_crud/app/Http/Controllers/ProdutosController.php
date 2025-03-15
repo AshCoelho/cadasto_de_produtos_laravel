@@ -26,7 +26,7 @@ class ProdutosController extends Controller
      */
     public function create()
     {
-        //
+        return view('produtos.create');
     }
 
     /**
@@ -36,28 +36,21 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Produto::created($request->all());
+        redirect()->route('produtos.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * 
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     *
-     */
+    
     public function edit($id)
     {
-        //
+        $produtos = Produto::where('id', $id)->first();
+        if(!empty($jogos)){
+            return view('produtos.edit', ['produtos' => $produtos]);
+        } else {
+            redirect()->route('produtos.index');
+        }
     }
+    
 
     /**
      * Update the specified resource in storage.

@@ -8,7 +8,7 @@
                 <h1>Lista</h1>
             </div>
             <div class="col-sm-2">
-                <a href="#" class="btn btn-outline-success">
+                <a href="{{ route('produtos.create')}}" class="btn btn-outline-success">
                 Adicionar Produto</a>
             </div>
         </div>
@@ -27,10 +27,19 @@
                
                     <tr>
                         <th> {{$produto->id}} </th>
-                        <td> {{$produto->nome}} </td>
-                        <td> {{$produto->descricao}} </td>
-                        <td> {{$produto->preco}} </td>
+                        <th> {{$produto->nome}} </th>
+                        <th> {{$produto->descricao}} </th>
+                        <th> {{$produto->preco}} </th>
                     </tr>
+                        <th class="d-flex">  
+                            <a href="{{ route('produtos.edit', ['id' => $produto->id]) }}"> Editar</a>
+
+
+                            <form action="#">
+                            <button>
+                            </button>
+                            </form>
+                        </th>
 
                 @endforeach
             </tbody>
